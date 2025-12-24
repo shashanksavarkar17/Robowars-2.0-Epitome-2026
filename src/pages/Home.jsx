@@ -10,15 +10,7 @@ const Home = () => {
 
       <section className="hero">
         <h1>ROBO<span>WARS</span></h1>
-        <p>India’s Ultimate Robot Combat Championship</p>
-      </section>
-
-      <section className="home-section">
-        <h2>Why RoboWars?</h2>
-        <p>
-          Battle-tested robots. High energy arenas.
-          National-level competition for engineers and innovators.
-        </p>
+        <p>2<sup>nd</sup> edition orgnized at EPITOME'26</p>
       </section>
 
       <Footer />
