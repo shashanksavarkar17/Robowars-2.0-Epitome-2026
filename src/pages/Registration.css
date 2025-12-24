@@ -1,0 +1,84 @@
+/* Full-page center */
+.register-wrapper {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card container */
+.register-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 50px;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid #222;
+  box-shadow: 0 0 40px rgba(220, 38, 38, 0.25);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Heading */
+.register-card h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+/* Form */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Inputs */
+.register-form input {
+  padding: 14px 16px;
+  background: linear-gradient(145deg, #0c0c0c, #000);
+  border: 1px solid #333;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.register-form input::placeholder {
+  color: #777;
+}
+
+/* Focus animation */
+.register-form input:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.5);
+}
+
+/* Button */
+.register-form button {
+  margin-top: 20px;
+  padding: 14px;
+  background: #dc2626;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.register-form button:hover {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Entry animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

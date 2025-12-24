@@ -1,0 +1,24 @@
+.rules {
+  background: #000;
+  color: #ddd;
+}
+
+.rules h1 {
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.rules ul {
+  max-width: 700px;
+  margin: auto;
+  list-style: none;
+}
+
+.rules li {
+  padding: 14px 20px;
+  margin-bottom: 12px;
+  background: #111;
+  border-left: 4px solid #dc2626;
+  font-size: 16px;
+}

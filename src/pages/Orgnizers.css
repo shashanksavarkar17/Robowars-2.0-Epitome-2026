@@ -1,0 +1,30 @@
+.organizers {
+  background: #000;
+  color: #fff;
+}
+
+.organizers h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.org-card {
+  background: #111;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #222;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.org-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
+}
