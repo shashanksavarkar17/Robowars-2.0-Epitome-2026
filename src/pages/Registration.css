@@ -1,172 +1,165 @@
-/* Custom Fonts & Base */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+/* Custom Global Variables for Consistency */
+:root {
+  --primary-orange: #ff4d00;
+  --hover-orange: #ff6a29;
+  --bg-dark: #000;
+  --glass-bg: rgba(15, 15, 15, 0.85);
+}
 
 .register-wrapper {
   min-height: 100vh;
-  background: radial-gradient(circle at center, #1a0505 0%, #000 100%);
+  background: radial-gradient(circle at center, #1a0800 0%, #000 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* CRITICAL: Prevents Navbar from overlapping the form */
+  padding: 120px 20px 60px 20px; 
   font-family: 'Inter', sans-serif;
-  padding: 20px;
 }
 
-/* Glassmorphism Card */
+/* Updated Card to match Navbar Glassmorphism */
 .register-card {
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
   padding: 40px;
-  background: rgba(15, 15, 15, 0.9);
+  background: var(--glass-bg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
-              0 0 20px rgba(220, 38, 38, 0.1);
-  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
+              0 0 20px rgba(255, 77, 0, 0.1);
   position: relative;
   overflow: hidden;
 }
 
-/* Visual Progress Bar */
+/* Progress Section */
 .step-indicator {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
-  color: #dc2626;
+  color: var(--primary-orange);
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: block;
 }
 
-/* Heading Improvements */
-.register-card h1 {
+.progress-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #222;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-orange), #ff8c00);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Form Headings */
+.form-section h1 {
   color: #fff;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 800;
-  margin-bottom: 30px;
-  letter-spacing: -0.5px;
+  margin-bottom: 25px;
+  letter-spacing: -1px;
 }
 
-/* Form Layout */
-.form-section {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  animation: slideIn 0.4s ease-out;
-}
-
-/* Inputs & File Upload */
+/* Input Styles */
 .register-form input[type="text"],
 .register-form input[type="email"],
-.register-form input[type="tel"],
-.register-form input[type="file"] {
+.register-form input[type="tel"] {
   width: 100%;
-  padding: 14px 18px;
-  background: #0a0a0a;
+  padding: 15px 20px;
+  background: #0d0d0d;
   border: 1px solid #222;
-  border-radius: 8px;
+  border-radius: 12px;
   color: #fff;
-  font-size: 15px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 16px;
+  transition: 0.3s ease;
+  margin-bottom: 5px;
 }
 
 .register-form input:focus {
-  border-color: #dc2626;
+  border-color: var(--primary-orange);
   background: #111;
   outline: none;
-  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.15);
+  box-shadow: 0 0 0 4px rgba(255, 77, 0, 0.15);
 }
 
-/* Custom Checkbox Style */
-.checkbox-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  color: #999;
-  font-size: 14px;
-  line-height: 1.4;
-  cursor: pointer;
-  margin: 10px 0;
-}
-
-.checkbox-container input {
-  accent-color: #dc2626;
-  width: 18px;
-  height: 18px;
-  margin-top: 2px;
-}
-
-/* Payment Section Styling */
-.qr-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.qr-container img {
-  width: 180px;
-  height: 180px;
-  object-fit: contain;
-}
-
-.qr-container p {
-  color: #000;
-  font-weight: 700;
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-/* Buttons */
-.btn-group {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-button {
-  padding: 14px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.2s;
-  border: none;
-}
-
+/* Orange Buttons to match Navbar Button */
 button[type="submit"], 
-.form-section > button {
-  background: #dc2626;
+.form-section > button,
+.btn-submit {
+  background: var(--primary-orange);
   color: #fff;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 100px; /* Pill shape like Navbar */
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
-button[type="submit"]:hover,
-.form-section > button:hover:not(:disabled) {
-  background: #ef4444;
+button:hover:not(:disabled) {
+  background: var(--hover-orange);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px -10px rgba(220, 38, 38, 0.5);
-}
-
-.btn-back {
-  background: transparent;
-  border: 1px solid #333;
-  color: #ccc;
-}
-
-.btn-back:hover {
-  background: #222;
-  color: #fff;
+  box-shadow: 0 8px 20px rgba(255, 77, 0, 0.4);
 }
 
 button:disabled {
-  opacity: 0.5;
+  background: #333;
+  color: #777;
   cursor: not-allowed;
-  filter: grayscale(1);
 }
 
-/* Animations */
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(10px); }
-  to { opacity: 1; transform: translateX(0); }
+/* Back Button */
+.btn-back {
+  background: transparent !important;
+  border: 1px solid #444 !important;
+  color: #999 !important;
+}
+
+.btn-back:hover {
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+/* Checkbox Styling */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ccc;
+  font-size: 14px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  accent-color: var(--primary-orange);
+  width: 18px;
+  height: 18px;
+}
+
+/* QR and Screenshot Previews */
+.qr-container {
+  background: #fff;
+  padding: 15px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.screenshot-preview {
+  border: 2px solid var(--primary-orange);
+  border-radius: 12px;
+  margin-top: 15px;
+  max-width: 100%;
 }

@@ -1,22 +1,36 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <div className="logo">ROBO<span>WARS</span></div>
+    <nav className="navbar-wrapper">
+      <div className="navbar-container">
+        {/* Logo Section */}
+        <div className="logo-section">
+          <img 
+            src="https://cdn-icons-png.flaticon.com/512/8039/8039305.png" 
+            alt="Robowars Logo" 
+            className="navbar-icon" 
+          />
+          <div className="logo">ROBOWARS</div>
+        </div>
 
-      <ul className="nav-links">
+        {/* Navigation Links */}
+        <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/rules">Rules</Link></li>
         <li><Link to="/timeline">Timeline</Link></li>
         <li><Link to="/organizers">Organizers</Link></li>
         <li><Link to="/media">Media</Link></li>
-        <li>
-          <Link className="register-btn" to="/register">Register</Link>
-        </li>
-      </ul>
+        </ul>
+
+        {/* Action Button */}
+        <div className="nav-actions">
+          <Link className="contact-btn" to="/register">Register Now!</Link>
+        </div>
+      </div>
     </nav>
   );
 };
