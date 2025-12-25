@@ -10,7 +10,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="logo-section">
           <img 
-            src="/assets/RED.png" 
+            src="/assets/robowars-logo.png" 
             alt="Robowars Logo" 
             className="navbar-icon" 
           />
