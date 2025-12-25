@@ -1,84 +1,172 @@
-/* Full-page center */
+/* Custom Fonts & Base */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
 .register-wrapper {
   min-height: 100vh;
-  background: #000;
+  background: radial-gradient(circle at center, #1a0505 0%, #000 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
 }
 
-/* Card container */
+/* Glassmorphism Card */
 .register-card {
   width: 100%;
-  max-width: 460px;
-  padding: 50px;
-  background: rgba(10, 10, 10, 0.85);
-  border: 1px solid #222;
-  box-shadow: 0 0 40px rgba(220, 38, 38, 0.25);
-  animation: fadeUp 0.8s ease forwards;
+  max-width: 480px;
+  padding: 40px;
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
+              0 0 20px rgba(220, 38, 38, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Heading */
+/* Visual Progress Bar */
+.step-indicator {
+  font-size: 12px;
+  font-weight: 800;
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Heading Improvements */
 .register-card h1 {
-  text-align: center;
   color: #fff;
-  font-size: 36px;
-  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
 }
 
-/* Form */
-.register-form {
+/* Form Layout */
+.form-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+  animation: slideIn 0.4s ease-out;
 }
 
-/* Inputs */
-.register-form input {
-  padding: 14px 16px;
-  background: linear-gradient(145deg, #0c0c0c, #000);
-  border: 1px solid #333;
+/* Inputs & File Upload */
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="tel"],
+.register-form input[type="file"] {
+  width: 100%;
+  padding: 14px 18px;
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 8px;
   color: #fff;
   font-size: 15px;
-  outline: none;
-  transition: 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.register-form input::placeholder {
-  color: #777;
-}
-
-/* Focus animation */
 .register-form input:focus {
   border-color: #dc2626;
-  box-shadow: 0 0 12px rgba(220, 38, 38, 0.5);
+  background: #111;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.15);
 }
 
-/* Button */
-.register-form button {
-  margin-top: 20px;
-  padding: 14px;
-  background: #dc2626;
-  border: none;
-  color: #fff;
-  font-size: 16px;
+/* Custom Checkbox Style */
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #999;
+  font-size: 14px;
+  line-height: 1.4;
   cursor: pointer;
-  transition: 0.3s ease;
+  margin: 10px 0;
 }
 
-.register-form button:hover {
-  box-shadow: 0 0 20px rgba(220, 38, 38, 0.7);
+.checkbox-container input {
+  accent-color: #dc2626;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+/* Payment Section Styling */
+.qr-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.qr-container img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.qr-container p {
+  color: #000;
+  font-weight: 700;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn-group {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: none;
+}
+
+button[type="submit"], 
+.form-section > button {
+  background: #dc2626;
+  color: #fff;
+}
+
+button[type="submit"]:hover,
+.form-section > button:hover:not(:disabled) {
+  background: #ef4444;
   transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(220, 38, 38, 0.5);
 }
 
-/* Entry animation */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.btn-back {
+  background: transparent;
+  border: 1px solid #333;
+  color: #ccc;
+}
+
+.btn-back:hover {
+  background: #222;
+  color: #fff;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
 }

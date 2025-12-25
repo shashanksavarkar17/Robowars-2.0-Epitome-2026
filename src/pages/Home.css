@@ -1,5 +1,5 @@
 .hero {
-  height: 83vh;
+  height: 82vh;
   background: radial-gradient(circle, #111, #000);
   display: flex;
   flex-direction: column;
