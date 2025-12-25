@@ -1,41 +1,64 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./Rules.css";
 
 const Rules = () => {
-
-  // Optional: fade-in on scroll
-  useEffect(() => {
-    const items = document.querySelectorAll(".rule-item");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("fade-in");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    items.forEach((item) => observer.observe(item));
-
-    return () => items.forEach((item) => observer.unobserve(item));
-  }, []);
+  const ruleCategories = [
+    {
+      title: "General Guidelines",
+      rules: [
+        "All team details must be accurate and verified during registration.",
+        "Registration fees are non-refundable under any circumstances.",
+        "Each captain must provide a valid email to receive the official briefing.",
+      ],
+    },
+    {
+      title: "Robot Specifications",
+      rules: [
+        "Maximum weight limit for the robot is 15kg (including batteries).",
+        "External power sources are strictly prohibited; robots must be wireless.",
+        "No projectiles, liquids, or fire-based weapons are allowed in the arena.",
+      ],
+    },
+    {
+      title: "Arena Gameplay",
+      rules: [
+        "Each round lasts for 3 minutes of active combat.",
+        "A robot is considered 'out' if it remains immobile for 10 seconds.",
+        "The referee's decision is final and binding for all participants.",
+      ],
+    },
+  ];
 
   return (
     <>
       <Navbar />
-      <div className="page rules">
-        <h1>Competition Rules</h1>
-        <ul>
-          <li className="rule-item">Robots must fit within size limits.</li>
-          <li className="rule-item">No flammable materials allowed.</li>
-          <li className="rule-item">All matches are knockout style.</li>
-          <li className="rule-item">Teams must report 30 min before match.</li>
-          <li className="rule-item">Judges decisions are final.</li>
-        </ul>
+      <div className="rules-page">
+        <div className="rules-header">
+          <span className="subtitle">Tournament Protocol</span>
+          <h1>Official <span>Rules</span> & Regulations</h1>
+        </div>
+
+        <div className="rules-container">
+          {ruleCategories.map((category, index) => (
+            <div key={index} className="rule-card">
+              <div className="rule-card-header">
+                <div className="rule-number">0{index + 1}</div>
+                <h2>{category.title}</h2>
+              </div>
+              <ul className="rule-list">
+                {category.rules.map((rule, i) => (
+                  <li key={i}>{rule}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        
+        <div className="rules-disclaimer">
+          <p>Failure to comply with these rules will lead to immediate disqualification.</p>
+        </div>
       </div>
       <Footer />
     </>

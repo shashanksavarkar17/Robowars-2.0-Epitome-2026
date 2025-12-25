@@ -1,45 +1,132 @@
-.rules {
+.rules-page {
   background: #000;
-  color: #ddd;
   min-height: 100vh;
-  padding: 80px 40px;
-}
-
-.rules h1 {
+  /* CRITICAL: Push content below your floating pill navbar */
+  padding: 140px 5% 80px;
   color: #fff;
-  margin-bottom: 40px;
-  text-align: center;
-  font-size: 42px;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Rule list */
-.rules ul {
-  max-width: 700px;
-  margin: auto;
+.rules-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.rules-header .subtitle {
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.rules-header h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-top: 10px;
+}
+
+.rules-header h1 span {
+  color: #dc2626;
+}
+
+/* Container for Rule Cards */
+.rules-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism Card Style */
+.rule-card {
+  background: rgba(15, 15, 15, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.rule-card:hover {
+  border-color: #dc2626;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 77, 0, 0.1);
+}
+
+.rule-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.rule-number {
+  background: #dc2626;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.rule-card h2 {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+/* List Styling */
+.rule-list {
   list-style: none;
   padding: 0;
 }
 
-.rules li {
-  padding: 14px 20px;
+.rule-list li {
+  color: #aaa;
   margin-bottom: 15px;
-  background: #111;
-  border-left: 4px solid #dc2626;
-  font-size: 16px;
-  opacity: 0;          /* initial state for animation */
-  transform: translateX(-30px);
-  transition: all 0.6s ease;
+  font-size: 15px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 20px;
 }
 
-/* Fade-in when in viewport */
-.rules li.fade-in {
-  opacity: 1;
-  transform: translateX(0);
+.rule-list li::before {
+  content: "•";
+  color: #dc2626;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
 }
 
-/* Hover glow effect */
-.rules li:hover {
-  border-left-color: #ea580c;
-  box-shadow: 0 0 12px rgba(220, 38, 38, 0.6);
-  color: #fff;
+/* Bottom Disclaimer */
+.rules-disclaimer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+  border-radius: 100px; /* Pill shape */
+  background: rgba(255, 77, 0, 0.05);
+  border: 1px dashed rgba(255, 77, 0, 0.3);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rules-disclaimer p {
+  color: #dc2626;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Responsive Scaling */
+@media (max-width: 768px) {
+  .rules-header h1 {
+    font-size: 2.2rem;
+  }
 }

@@ -11,6 +11,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --theme-color: #dc2626; 
+  
+  --hover-color: #b91c1c;
+  --glow-color: rgba(220, 38, 38, 0.4);
 }
 
 a {
@@ -77,4 +81,3 @@ html, body, #root {
   min-height: 100vh;
   background-color: #000;
 }
-
