@@ -1,7 +1,7 @@
-/* Custom Global Variables for Consistency */
+/* Custom Global Variables */
 :root {
-  --primary-orange: #dc2626;
-  --hover-orange: #dc2626;
+  --primary-red: #dc2626;
+  --hover-red: #b91c1c;
   --bg-dark: #000;
   --glass-bg: rgba(10, 10, 10, 0.9);
 }
@@ -10,107 +10,116 @@
   min-height: 100vh;
   background: radial-gradient(circle at center, #1a0800 0%, #000 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* CRITICAL: Pushes the form down so it's not hidden under the Navbar */
-  padding: 140px 20px 60px 20px; 
+  padding: 140px 20px 60px 20px;
   font-family: 'Inter', sans-serif;
 }
 
-/* Updated Card to match your Navbar's Glassmorphism style */
+/* Dynamic Progress Bar at top of wrapper */
+.progress-bar-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;
+  background: var(--primary-red);
+  transition: width 0.4s ease;
+  z-index: 2000;
+}
+.progress-bar-top.step-1 { width: 25%; }
+.progress-bar-top.step-2 { width: 50%; }
+.progress-bar-top.step-3 { width: 75%; }
+.progress-bar-top.step-4 { width: 100%; }
+
 .register-card {
   width: 100%;
   max-width: 500px;
   padding: 40px;
   background: var(--glass-bg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 28px; /* Slightly more rounded for premium look */
+  border-radius: 28px;
   backdrop-filter: blur(15px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 
-              0 0 20px rgba(255, 77, 0, 0.05);
-  position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(220, 38, 38, 0.1);
 }
 
-/* Progress Section */
 .step-indicator {
   font-size: 13px;
   font-weight: 800;
-  color: var(--primary-orange);
+  color: var(--primary-red);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 8px;
   display: block;
 }
 
-/* Typography */
 .form-section h1 {
   color: #fff;
   font-size: 32px;
   font-weight: 800;
   margin-bottom: 25px;
-  letter-spacing: -1px;
 }
 
-.form-section p, .terms-box {
-  color: #aaa;
-  line-height: 1.6;
-}
-
-/* Input Styles - Clean & Dark */
-.register-form input[type="text"],
-.register-form input[type="email"],
-.register-form input[type="tel"] {
+/* Inputs */
+.register-form input:not([type="checkbox"]) {
   width: 100%;
   padding: 15px 20px;
   background: #0d0d0d;
   border: 1px solid #222;
   border-radius: 14px;
   color: #fff;
-  font-size: 16px;
-  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 15px;
 }
 
 .register-form input:focus {
-  border-color: var(--primary-orange);
-  background: #111;
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
   outline: none;
-  box-shadow: 0 0 0 4px #dc2626;
 }
 
-/* The Orange Pill Buttons (Matching Navbar) */
-button[type="submit"], 
-.form-section > button,
-.btn-submit {
-  background: var(--primary-orange) !important;
-  color: #fff;
+/* Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ccc;
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.checkbox-container input {
+  accent-color: var(--primary-red);
+  width: 18px;
+  height: 18px;
+}
+
+/* Buttons */
+button {
   padding: 15px 35px;
   border: none;
-  border-radius: 100px; /* Pill shape */
+  border-radius: 100px;
   font-weight: 700;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s;
+}
+
+button[type="submit"], .form-section > button:not(.btn-back):not(.add-member-btn) {
+  background: var(--primary-red);
+  color: #fff;
   width: 100%;
-  margin-top: 15px;
 }
 
 button:hover:not(:disabled) {
-  background: var(--hover-orange) !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px #dc2626;
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
 }
 
 button:disabled {
-  background: #2a2a2a !important;
+  background: #333;
   color: #666;
   cursor: not-allowed;
-  opacity: 0.8;
 }
 
-/* Bottom Actions Group */
 .btn-group {
   display: flex;
   gap: 15px;
@@ -118,45 +127,78 @@ button:disabled {
 }
 
 .btn-back {
+  background: #222;
+  color: #ccc;
+  width: 40%;
+}
+
+/* Team Members Step */
+.members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.member-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.add-member-btn {
   background: transparent !important;
-  border: 1px solid #444 !important;
-  color: #ccc !important;
-  width: 40% !important;
-  border-radius: 100px !important;
+  border: 1px dashed var(--primary-red) !important;
+  color: var(--primary-red) !important;
+  width: 100%;
 }
 
-.btn-back:hover {
-  border-color: #fff !important;
-  color: #fff !important;
-  background: rgba(255, 255, 255, 0.05) !important;
+.remove-member-btn {
+  background: #333 !important;
+  width: 45px;
+  height: 48px;
+  border-radius: 14px !important;
 }
 
-/* QR Code & Upload View */
+/* Payment Section */
+.payment-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .qr-container {
   background: #fff;
-  padding: 20px;
-  border-radius: 20px;
+  padding: 15px;
+  border-radius: 15px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-.qr-container img {
-  max-width: 180px;
+.file-label {
+  display: block;
+  background: #222;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
 }
 
 .screenshot-preview {
-  border: 2px solid var(--primary-orange);
-  border-radius: 15px;
-  margin-top: 15px;
   width: 100%;
-  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  border: 1px solid var(--primary-red);
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
-/* Summary Box */
 .summary-box {
-  background: rgba(255, 77, 0, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px dashed #444;
   padding: 15px;
   border-radius: 14px;
   margin-top: 15px;
+  color: #eee;
 }
