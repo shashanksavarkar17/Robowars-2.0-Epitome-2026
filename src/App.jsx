@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import Rules from "./pages/Rules";
 import Timeline from "./pages/Timeline";
-import Orgnizers from "./pages/Orgnizers";
+import Organizers from "./pages/Organizers";
 import Media from "./pages/Media";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/register" element={<Registration />} />
         <Route path="/rules" element={<Rules />} />
         <Route path="/timeline" element={<Timeline />} />
-        <Route path="/organizers" element={<Orgnizers />} />
+        <Route path="/organizers" element={<Organizers />} />
         <Route path="/media" element={<Media />} />
       </Routes>
     </BrowserRouter>

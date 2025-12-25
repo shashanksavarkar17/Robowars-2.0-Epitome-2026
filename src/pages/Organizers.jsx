@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./Orgnizers.css";
+import "./Organizers.css";
 
 const organizers = [
   { id: 1, name: "Name 1", role: "Lead Organizer", image: "https://via.placeholder.com/150" },

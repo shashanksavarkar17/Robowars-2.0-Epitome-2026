@@ -1,29 +1,134 @@
-.hero {
-  height: 82vh;
-  background: radial-gradient(circle, #111, #000);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: 64px;
+.home-wrapper {
+  background: #000;
   color: #fff;
+  overflow-x: hidden;
 }
 
-.hero span {
-  color: #dc2626;
-}
-
-.hero p {
-  color: #aaa;
-  font-size: 20px;
-}
-
-.home-section {
-  padding: 80px;
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  background: #050505;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=2070') no-repeat center center/cover;
+  position: relative;
+  padding: 0 20px;
+}
+
+.hero-subtitle {
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 15px;
+  animation: fadeInDown 1s ease;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  color: #dc2626;
+  text-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 0 auto 40px;
   color: #ccc;
+  font-size: 1.2rem;
+}
+
+/* CTAs matching your Navbar Pills */
+.hero-btns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.cta-primary {
+  background: #dc2626;
+  color: #fff;
+  padding: 15px 40px;
+  border-radius: 100px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+}
+
+.cta-secondary {
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 15px 40px;
+  border-radius: 100px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta-primary:hover {
+  background: #b91c1c;
+  transform: translateY(-3px);
+}
+
+/* News Ticker Animation */
+.news-ticker {
+  background: #dc2626;
+  padding: 15px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-wrap {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+}
+
+.ticker-item {
+  display: inline-block;
+  padding: 0 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Highlight Stats */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.highlight-card h2 {
+  font-size: 4rem;
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+
+.highlight-card p {
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Keyframes */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

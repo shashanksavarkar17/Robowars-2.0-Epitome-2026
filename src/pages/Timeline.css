@@ -1,29 +1,146 @@
-.timeline {
+.timeline-page {
   background: #000;
+  min-height: 100vh;
+  /* Space for the floating pill navbar */
+  padding: 140px 5% 80px;
   color: #fff;
+  font-family: 'Inter', sans-serif;
 }
 
-.timeline h1 {
+.timeline-header {
   text-align: center;
+  margin-bottom: 60px;
+}
+
+.timeline-header .subtitle {
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.timeline-header h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-top: 10px;
+}
+
+.timeline-header h1 span {
+  color: #dc2626;
+}
+
+/* Timeline Track */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline-track {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(220, 38, 38, 0.2);
+}
+
+/* Individual Items */
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
   margin-bottom: 50px;
 }
 
-.timeline-item {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
+.timeline-dot {
+  position: absolute;
+  left: 11px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
   background: #111;
-  border: 1px solid #222;
-  position: relative;
+  border: 2px solid #333;
+  border-radius: 50%;
+  z-index: 2;
+  transition: 0.3s;
 }
 
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: 50%;
-  width: 10px;
-  height: 10px;
+/* Status Based Glows */
+.timeline-item.completed .timeline-dot {
   background: #dc2626;
-  transform: translateY(-50%);
+  border-color: #dc2626;
+}
+
+.timeline-item.active .timeline-dot {
+  background: #dc2626;
+  border-color: #dc2626;
+  box-shadow: 0 0 15px #dc2626;
+  animation: pulse-red 2s infinite;
+}
+
+/* Content Cards */
+.timeline-content {
+  background: rgba(15, 15, 15, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.timeline-item:hover .timeline-content {
+  border-color: #dc2626;
+  transform: translateX(10px);
+}
+
+.event-date {
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.timeline-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.timeline-content p {
+  color: #888;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+/* Desktop alignment (Optional: Alternating sides) */
+@media (min-width: 768px) {
+  .timeline-track {
+    left: 50%;
+  }
+  .timeline-dot {
+    left: calc(50% - 10px);
+  }
+  .timeline-item {
+    width: 50%;
+    padding-left: 0;
+  }
+  .timeline-item:nth-child(even) {
+    margin-left: 50%;
+    padding-left: 40px;
+  }
+  .timeline-item:nth-child(odd) {
+    text-align: right;
+    padding-right: 40px;
+  }
 }
