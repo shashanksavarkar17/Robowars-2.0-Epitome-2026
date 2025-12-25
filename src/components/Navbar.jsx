@@ -10,7 +10,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="logo-section">
           <img 
-            src="https://cdn-icons-png.flaticon.com/512/8039/8039305.png" 
+            src="/assets/RED.png" 
             alt="Robowars Logo" 
             className="navbar-icon" 
           />

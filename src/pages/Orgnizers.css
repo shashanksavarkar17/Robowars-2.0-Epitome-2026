@@ -1,35 +1,100 @@
-.organizers {
+:root {
+  --primary-orange: #dc2626;
+  --glass-bg: rgba(10, 10, 10, 0.85);
+  --card-border: rgba(255, 255, 255, 0.1);
+}
+
+.organizers-wrapper {
+  min-height: 100vh;
   background: #000;
+  /* Push content down to avoid the floating Navbar */
+  padding: 140px 5% 80px;
+  text-align: center;
+}
+
+.organizers-title {
+  font-size: 3rem;
+  font-weight: 900;
   color: #fff;
+  margin-bottom: 50px;
+  letter-spacing: -1px;
 }
 
-.organizers h1 {
-  text-align: center;
-  margin-bottom: 40px;
+.organizers-title span {
+  color: var(--primary-orange);
 }
 
-.org-grid {
+/* Grid Layout */
+.organizers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 5px;
-  max-width: 900px;
-  margin: auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.org-card {
-  background: #111;
+/* Glassmorphism Cards */
+.organizer-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
   padding: 30px;
-  text-align: center;
-  border: 1px solid #222;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(15px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.org-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
+.organizer-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-orange);
+  box-shadow: 0 15px 30px rgba(255, 77, 0, 0.15);
 }
 
-.tf-26 {
-  padding-top: 80px;
-  color: #dc2626;
+/* Image Styling */
+.image-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 2px solid var(--primary-orange);
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.organizer-card h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.organizer-card p {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Pill Element matching Navbar buttons */
+.social-pill {
+  display: inline-block;
+  padding: 8px 25px;
+  background: rgba(255, 77, 0, 0.1);
+  color: var(--primary-orange);
+  border: 1px solid var(--primary-orange);
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-pill:hover {
+  background: var(--primary-orange);
+  color: #fff;
 }

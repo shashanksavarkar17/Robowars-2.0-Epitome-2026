@@ -64,7 +64,7 @@
 
 /* The Orange Capsule Button */
 .contact-btn {
-  background: #ff4d00; /* Vibrant orange-red */
+  background: dc2626; /* Vibrant orange-red */
   color: #fff !important;
   text-decoration: none;
   padding: 12px 30px;
@@ -73,13 +73,13 @@
   font-size: 14px;
   transition: all 0.3s ease;
   display: inline-block;
-  box-shadow: 0 4px 15px rgba(255, 77, 0, 0.3);
+  box-shadow: 0 4px 15px #dc2626;
 }
 
 .contact-btn:hover {
-  background: #ff6a29;
+  background: dc2626;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(255, 77, 0, 0.5);
+  box-shadow: 0 6px 20px #dc2626;
 }
 
 /* Mobile Responsiveness */

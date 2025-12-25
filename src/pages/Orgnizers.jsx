@@ -3,27 +3,30 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./Orgnizers.css";
 
+const organizers = [
+  { id: 1, name: "Name 1", role: "Lead Organizer", image: "https://via.placeholder.com/150" },
+  { id: 2, name: "Name 2", role: "Technical Head", image: "https://via.placeholder.com/150" },
+  { id: 3, name: "Name 3", role: "Event Manager", image: "https://via.placeholder.com/150" },
+];
+
 const Organizers = () => {
   return (
     <>
       <Navbar />
-      <div className="page organizers">
-        <h1>Organizing Team</h1>
-        <h1 className="tf-26">EPITOME'26</h1>
-
-        <div className="org-grid">
-          <div className="org-card">Event Head: 
-            <div className="org-name">John Doe</div>
-          </div>
-          <div className="org-card">Event Head: 
-            <div className="org-name">John Doe</div>
+      <div className="organizers-wrapper">
+        <h1 className="organizers-title">Meet Our <span>Team</span></h1>
+        
+        <div className="organizers-grid">
+          {organizers.map((person) => (
+            <div key={person.id} className="organizer-card">
+              <div className="image-container">
+                <img src={person.image} alt={person.name} />
+              </div>
+              <h3>{person.name}</h3>
+              <p>{person.role}</p>
+              <div className="social-pill">Contact</div>
             </div>
-          <div className="org-card">Event Coordinator: 
-            <div className="org-name">John Doe</div>
-            </div>
-          <div className="org-card">Event Coordinator: 
-            <div className="org-name">John Doe</div>
-            </div>
+          ))}
         </div>
       </div>
       <Footer />
