@@ -1,7 +1,7 @@
 /* Custom Global Variables for Consistency */
 :root {
-  --primary-orange: #ff4d00;
-  --hover-orange: #ff6a29;
+  --primary-orange: #dc2626;
+  --hover-orange: #dc2626;
   --bg-dark: #000;
   --glass-bg: rgba(10, 10, 10, 0.9);
 }
@@ -75,7 +75,7 @@
   border-color: var(--primary-orange);
   background: #111;
   outline: none;
-  box-shadow: 0 0 0 4px rgba(255, 77, 0, 0.15);
+  box-shadow: 0 0 0 4px #dc2626;
 }
 
 /* The Orange Pill Buttons (Matching Navbar) */
@@ -100,7 +100,7 @@ button[type="submit"],
 button:hover:not(:disabled) {
   background: var(--hover-orange) !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 77, 0, 0.4);
+  box-shadow: 0 10px 25px #dc2626;
 }
 
 button:disabled {
